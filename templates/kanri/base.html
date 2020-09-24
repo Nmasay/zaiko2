@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+{% load static %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'kanri/app.css' %}">
+
+    <title>商品管理</title>
+</head>
+
+<body>
+    {% block content %}
+    {% endblock %}
+
+</body>
+
+</html>
