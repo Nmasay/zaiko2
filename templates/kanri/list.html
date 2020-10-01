@@ -2,7 +2,36 @@
 {% block content %}
 
 
-<h1>list</h1>
+<h2>商品一覧</h2>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">登録日</th>
+        <th scope="col">業者名</th>
+        <th scope="col">商品名</th>
+        <th scope="col">入値</th>
+        <th scope="col">売値</th>
+        <th scop="col">詳細</th>
+      </tr>
+    </thead>
+    <tbody>
+        
+        {% for item in object_list  %}
+
+        <tr>
+            <th scope="row">{{ item.created_at }}</th>
+            <td>{{ item.trader }}</td>
+            <td>{{ item.product}}</td>
+            <td>{{ item.enter_price}}</td>
+            <td>{{ item.selling_price}}</td>
+            <td><a href="{% url 'kanri:detail' item.pk %}">詳細</a></td>
+            <td><a href="{% url 'kanri:delete' item.pk %}">削除</a></td>
+        </tr>
+        
+        {% endfor %}
+    </tbody>
+  </table>
 
 
 {% endblock %}
