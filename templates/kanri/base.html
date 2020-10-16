@@ -6,29 +6,50 @@
 <html lang="ja">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'kanri/app.css' %}">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'kanri/app.css' %}">
 
-    <title>商品管理</title>
+  <title>商品管理</title>
 </head>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<body>
+  <!--ナビバー-->
+  <nav class="navbar navbar-expand-lg navbar-light">
     <a class="navbar-brand" href="#">商品管理</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a class="nav-item nav-link active" href="{% url 'kanri:list'%}">Home <span class="sr-only">(current)</span></a>
-        <a class="nav-item nav-link" href="{% url 'kanri:product-form'%}">商品登録</a>
-        <a class="nav-item nav-link" href="{% url 'kanri:trader-form'%}">業者登録</a>
-      </div>
+    
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'kanri:list' %}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'kanri:product-form' %}">商品登録</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            業者
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="{% url 'kanri:trader-form' %}">登録</a>
+            <a class="dropdown-item" href="{% url 'kanri:trader-list' %}">削除</a>
+          </div>
+        </li>
+      </ul>
+      
+      <form method="GET" class="form-inline my-2 my-lg-0">
+        <input name="query" value="{{ request.GET.query }}" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
+      </form>
     </div>
   </nav>
-<body>
-    {% block content %}
-    {% endblock %}
+  <!--ナビバー終了-->
+ 
+  {% block content %}
+  {% endblock %}
 
 </body>
 

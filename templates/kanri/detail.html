@@ -1,6 +1,17 @@
 {% extends 'kanri/base.html' %}
 {% block content %}
-<h1>詳細表示</h1>
-<p>{{item.product}}</p>
-<p>{{item.barcode}}</p>
+<div class="container">
+        <div class="card w-75 text-center">
+                <div class="card-body">
+                        <h5 class="card-title">{{ item.product}}</h5>
+                        <p class="card-text">{{ item.barcode}}</p>
+                        <p class="card-text"><small class="text-muted">{{item.remarks}}</small></p>
+                        <a href="{% url 'kanri:update' item.pk %}" class="btn">更新</a>
+                        <a href="{% url 'kanri:delete' item.pk %}" class="btn">削除</a>
+                </div>
+        </div>
+</div>
+        
+
+
 {% endblock %}

@@ -2,12 +2,12 @@
 {% block content %}
 
 
-<h1>商品登録</h1>
+<h3 class="text-center mt-2">商品登録・更新</h3>
 
 <div class="container">
     <form method="POST">
         {% csrf_token %}
-        {{ form }}
+        {{ form.as_p}}
         <div class="form-group text-right">
             <button class="btn btn-light btn-block" type="submit">登録</button>
         </div>

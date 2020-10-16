@@ -10,6 +10,7 @@ class TraderForm(forms.ModelForm):
     class Meta:
         model = Traders
         fields = ('trader_name',)
+        
 class PostForms(forms.ModelForm):
     
     def __init__(self, *args, **kwargs):
